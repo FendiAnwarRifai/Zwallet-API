@@ -1,0 +1,76 @@
+Database (
+users => id, nama, nomor hp, email, PIN, saldo (clear)
+transaksi => id,id_user_sender, id_user_receiver,amount,date,Notes ,createdAt (clear)
+topup => id, id_user, jumlah topup,createdAt,updatedAt (clear)
+)
+CRUD(
+user (clear)
+transaksi (clear)
+topup (clear)
+)
+Error Handling(
+user (clear)
+transaksi (clear)
+topup (clear)
+)
+Pencarian user berdasarkan nama dan nomor hp(clear)
+pagination(clear)
+Pengurutan transaksi berdasarkan yg terbaru atau yg terlama (clear)
+Linter(clear)
+env (clear)
+Cors (clear)
+(Opsional) Dokumentasi Postman (clear)
+Flowchart dari API kalian (clear)
+GitHub readme(http blabalab buat apa) (clear)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+notes transaksi
+"SELECT transfers.id,(SELECT users.name FROM transfers INNER JOIN users ON transfers.id_user=users.id) as nama_pengirim , users.name as nama_penerima,transfers.amount , transaction.notes ,transaction.date FROM transaction INNER JOIN transfers ON transaction.id_transfer=transfers.id INNER JOIN users ON transaction.id_user_receiver=users.id"
+
+
+"SELECT transaction.id as id_trasaksi,transaction.amount,(SELECT users.name FROM transaction INNER JOIN users WHERE transaction.id_user_sender=users.id) as nama_pengirim, users.name as nama_penerima,date,notes,transaction.createdAt FROM transaction INNER JOIN users ON transaction.id_user_receiver=users.id"
+
+SELECT u.name as nama_penerima FROM transaction tran INNER JOIN users u ON (u.id = tran.id_user_sender) INNER JOIN users ud ON (ud.id = id_user_receiver)
+
+
+SELECT * FROM `transaction` ORDER BY `transaction`.`id` DESC (dari terbaru ke yang lama)
+SELECT * FROM `transaction` ORDER BY `transaction`.`id` ASC (dari terlama ke yang terbaru)
