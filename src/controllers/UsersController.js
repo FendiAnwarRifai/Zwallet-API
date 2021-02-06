@@ -123,13 +123,13 @@ const Users = {
         {
           return helper.response('error', res, null, 401, 'Id Not Found')
         }
-        client.flushdb(function (err, succeeded) {
-          console.log(succeeded)
-        })
+        // client.flushdb(function (err, succeeded) {
+        //   console.log(succeeded)
+        // })
         res.json(resultUser)
       })
       .catch((err) => {
-        helper.response('error', res, null, 200, err)
+        helper.response('error', res, null, 401, err)
       })
 
   },
