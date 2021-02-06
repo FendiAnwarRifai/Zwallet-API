@@ -129,7 +129,7 @@ const Users = {
         res.json(resultUser)
       })
       .catch((err) => {
-        helper.response('error', res, null, 200, err.sqlMessage)
+        helper.response('error', res, null, 200, err)
       })
 
   },
