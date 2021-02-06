@@ -3,7 +3,7 @@ const router = express.Router()
 const UsersController = require('../controllers/UsersController')
 const {uploadMulter} = require('../middlewares/upload')
 const {verifyAccess} = require('../middlewares/auth')
-const {cacheAllUser, getDetailUser} = require('../middlewares/redis')
+// const {cacheAllUser, getDetailUser} = require('../middlewares/redis')
 router
   .get('/',verifyAccess, UsersController.view)
   .post('/', UsersController.insert)
