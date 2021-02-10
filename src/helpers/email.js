@@ -1,16 +1,12 @@
 const nodemailer = require("nodemailer")
-const smtpTransport = require('nodemailer-smtp-transport')
 // create reusable transporter object using the default SMTP transport
-let transporter = nodemailer.createTransport(smtpTransport({
+let transporter = nodemailer.createTransport({
   service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
   auth: {
     user: process.env.EMAIL, // generated ethereal user
     pass: process.env.PW_EMAIL, // generated ethereal password
-  }
-}));
+  },
+});
 exports.sendEmail = (email, username, link) => {
   return new Promise((resolve, reject) => {
     const message = {
@@ -132,7 +128,7 @@ footer{
 </body>
 </html>
 
-            ` // html body
+            `, // html body
     }
     transporter.sendMail(message, (error, info) => {
       if (error) {
