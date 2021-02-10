@@ -3,6 +3,7 @@ const smtpTransport = require('nodemailer-smtp-transport')
 // create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport(smtpTransport({
   service: 'gmail',
+  host: 'smtp.gmail.com',
   auth: {
     user: process.env.EMAIL, // generated ethereal user
     pass: process.env.PW_EMAIL, // generated ethereal password
