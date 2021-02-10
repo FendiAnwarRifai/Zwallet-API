@@ -1,13 +1,15 @@
 const nodemailer = require("nodemailer")
 // create reusable transporter object using the default SMTP transport
-let transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL, // generated ethereal user
-    pass: process.env.PW_EMAIL, // generated ethereal password
-  },
-});
-exports.sendEmail = (email, username, link) => {
+exports.sendEmail = async (email, username, link) => {
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.EMAIL, // generated ethereal user
+      pass: process.env.PW_EMAIL, // generated ethereal password
+    }
+  })
   return new Promise((resolve, reject) => {
     const message = {
       from: process.env.EMAIL,
@@ -130,7 +132,7 @@ footer{
 
             `, // html body
     }
-    transporter.sendMail(message, (error, info) => {
+    await transporter.sendMail(message, (error, info) => {
       if (error) {
         // console.log('Error occurred');
         // console.log(error.message);
