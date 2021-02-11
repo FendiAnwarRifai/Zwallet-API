@@ -31,7 +31,7 @@ Express.js is a web application framework for Node.js. [More about Express](http
 ### set .env
 ```
 DB_HOST=
-DB_PORT=
+PORT=
 DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
